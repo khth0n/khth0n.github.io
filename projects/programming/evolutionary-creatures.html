@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A foray into genetic and evolutionary-based algorithms for creatures in a game-like fashion.">
+    <meta name="keywords" content="genetics, evolution, neural networks, simulation, game, game design">
+    <meta name="author" content="Isaiah Cordova">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evolutionary Creatures</title>
+    <link rel="stylesheet" href="../../styles/projects/programming/evolutionary-creatures.css">
+    <script type="module" src="../../scripts/projects/evolutionary-creatures/evolve.js" defer></script>
+</head>
+<body>
+    <fieldset>
+        <legend>Evolutionary Creatures</legend>
+        <div class="visualizer">
+            <canvas is="basic-grid" id="board" title="Evolutionary Creatures" width="1000" height="1000" rows="50" cols="50"></canvas>
+    
+            <fieldset is="control-field">
+                <ul>
+                    <li><input is="num-slider" value="before"></li>
+                    <li><input is="num-slider" value="before"></li>
+                </ul>
+            </fieldset>
+
+            <fieldset id="test">
+                <legend>Simulation Control</legend>
+                <button is="exec-button"></button>
+                <button is="gen-button"></button>
+            </fieldset>
+        </div>        
+    </fieldset>
+</body>
+</html>

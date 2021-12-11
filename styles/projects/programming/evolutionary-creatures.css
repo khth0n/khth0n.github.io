@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+}
+
+.visualizer {
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+}
+
+#board {
+    outline: solid black;
+}
+
+#test {
+    flex-grow: 1;
+}
+
+.control-field {
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    flex-grow: 1;
+    width: min-content;
+}
+
+.control-field li {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+
+.control-field .label-title,
+.control-field .label-value,
+.control-field .slider {
+    flex-grow: 1;
+    text-align: center;
+}
