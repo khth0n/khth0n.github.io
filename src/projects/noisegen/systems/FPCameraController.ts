@@ -35,7 +35,8 @@ export class FPCameraController {
 
             console.log(target);
 
-            camera.lookAt(target);
+            //camera.lookAt(target);
+            camera.lookAt(0, 0, 0);
 
             console.log( ev.movementX, ev.movementY );
         }

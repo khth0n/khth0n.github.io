@@ -3,13 +3,14 @@ import { DoubleSide, Material, Mesh, MeshBasicMaterial, MeshStandardMaterial, Pl
 
 function createHeightmap() {
 
-    const geometry = new PlaneGeometry(500, 500, 257, 257);
+    //const geometry = new PlaneGeometry(500, 500, 257, 257);
+    const geometry = new PlaneGeometry(500, 500, 200, 200);
     geometry.rotateX( -Math.PI / 2 );
 
     const loader = new TextureLoader();
 
     const texture = loader.load('/rock_texture.png');
-    const heightmap = loader.load('/testmap.png');
+    const heightmap = loader.load('/testmap5.png');
 
     const max_delta = -100;
 
