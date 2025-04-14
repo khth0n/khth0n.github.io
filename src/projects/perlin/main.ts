@@ -22,11 +22,13 @@ function showHeightmap(noise: Float64Array) {
 
         currentPixelIndex = i * 4
 
-        //data[currentPixelIndex + 0] = alpha;
-        //data[currentPixelIndex + 1] = alpha;
-        //data[currentPixelIndex + 2] = alpha;
-
         ///*
+        data[currentPixelIndex + 0] = alpha;
+        data[currentPixelIndex + 1] = alpha;
+        data[currentPixelIndex + 2] = alpha;
+        //*/
+
+        /*
         if(noise[i] < 0.5) {
 
             [
@@ -49,7 +51,7 @@ function showHeightmap(noise: Float64Array) {
                 data[currentPixelIndex + 2]
             ] = [160, 160, 160]
         }
-        //*/
+        */
 
         data[currentPixelIndex + 3] = 255;
     }

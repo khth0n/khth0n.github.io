@@ -39,8 +39,8 @@ function createHeightmap() {
 
     const loader = new TextureLoader();
 
-    const texture = loader.load('/test_texture.png');
-    //const heightmap = loader.load('/testmap5.png');
+    const texture = loader.load('/rock_texture.png');
+    //const heightmap = loader.load('/testmap8.png');
 
     const heightmap = new Texture(generateHeightmap(hmap_width, hmap_height));
     heightmap.needsUpdate = true;
