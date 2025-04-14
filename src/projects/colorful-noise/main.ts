@@ -182,6 +182,35 @@ const subtractNoise = (noiseA: Uint8ClampedArray, noiseB: Uint8ClampedArray) => 
     return combinedNoise;
 }
 
+const invertNoise = (noise: Uint8ClampedArray) => {
+
+    let inverted = new Uint8ClampedArray(noise.length);
+
+    for(let i = 0; i < noise.length; i++) {
+
+        inverted[i] = 255 - noise[i];
+    }
+
+    return inverted;
+}
+
+const canvasToHeightmap = (canvas: HTMLCanvasElement) => {
+
+    let heightmap = new Uint8ClampedArray(canvas.width * canvas.height);
+
+    const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
+
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const data = imageData.data;
+
+    for(let i = 0; i < heightmap.length; i++) {
+
+        heightmap[i] = data[4 * i];
+    }
+
+    return heightmap;
+}
+
 const canvases = [];
 
 const canvas_count = 10;
@@ -219,7 +248,7 @@ const flatNoise = new Uint8ClampedArray(canvases[0].width * canvases[0].height);
 
 for(let i = 0; i < flatNoise.length; i++) {
 
-    flatNoise[i] = 255 * 0.3;
+    flatNoise[i] = 255 * 0.9;
 }
 
 const combo_noise_2 = subtractNoise(filtered_noise_2, flatNoise);
@@ -237,3 +266,52 @@ renderNoise(canvases[8], combo_noise_4);
 
 const combo_noise_5 = lowPassFilterNoise(canvases[0].width, canvases[0].height, combo_noise_4);
 renderNoise(canvases[9], combo_noise_5);
+
+const pathImage = new Image();
+
+pathImage.onload = () => {
+
+    const canvas = document.createElement('canvas');
+    canvas.width = pathImage.width;
+    canvas.height = pathImage.height;
+
+
+    const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
+    ctx.drawImage(pathImage, 0, 0);
+
+    comparison_stack.appendChild(canvas);
+
+    const canvas_2 = document.createElement('canvas');
+    canvas_2.width = pathImage.width;
+    canvas_2.height = pathImage.height;
+
+    comparison_stack.appendChild(canvas_2);
+
+    const pathNoise = invertNoise(canvasToHeightmap(canvas));
+    renderNoise(canvas_2, pathNoise);
+
+    const canvas_3 = document.createElement('canvas');
+    canvas_3.width = pathImage.width;
+    canvas_3.height = pathImage.height;
+
+    comparison_stack.appendChild(canvas_3);
+
+    const roadNoise = subtractNoise(combo_noise_5, pathNoise);
+    renderNoise(canvas_3, roadNoise);
+
+    const canvas_4 = document.createElement('canvas');
+    canvas_4.width = pathImage.width;
+    canvas_4.height = pathImage.height;
+
+    comparison_stack.appendChild(canvas_4);
+
+    const roadNoise_2 = lowPassFilterNoise(canvas_4.width, canvas_4.height,
+        combineNoise(
+            subtractNoise(filtered_noise_3, flatNoise),
+            roadNoise
+        )
+    );
+    renderNoise(canvas_4, roadNoise_2);
+}
+
+pathImage.src = '/path.png';

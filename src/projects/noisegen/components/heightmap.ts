@@ -34,20 +34,20 @@ function createHeightmap() {
     const hmap_width = 256;
     const hmap_height = 256;
 
-    const geometry = new PlaneGeometry(500, 500, hmap_width, hmap_height);
+    const geometry = new PlaneGeometry(1000, 1000, hmap_width, hmap_height);
     geometry.rotateX( -Math.PI / 2 );
 
     const loader = new TextureLoader();
 
-    const texture = loader.load('/rock_texture.png');
-    //const heightmap = loader.load('/testmap8.png');
+    const texture = loader.load('/path_texture.png');
+    const heightmap = loader.load('/testmap9.png');
 
-    const heightmap = new Texture(generateHeightmap(hmap_width, hmap_height));
+    //const heightmap = new Texture(generateHeightmap(hmap_width, hmap_height));
     heightmap.needsUpdate = true;
 
     console.log(heightmap);
 
-    const max_delta = 400;
+    const max_delta = 10;
 
     geometry.translate(0, max_delta / 2, 0);
 
