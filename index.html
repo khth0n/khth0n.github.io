@@ -2,24 +2,87 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/styles/style.css">
-    <script src="scripts/main.js" defer></script>
+    <title>Landing Page</title>
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+    <link id="theme" rel="stylesheet" href="/stylesheets/tamu-style.css">
+    
+    <!--
+        Credit to Google,
+        the Mozilla Foundation,
+        Telefonica S.A., 
+        Nikita Prokopov,
+        Vernon Adams,
+        Kalapi Gajjar,
+        and Cyreal
+        for Font Access
+
+        Reference: https://fonts.google.com/specimen/Fira+Code/about
+        Reference: https://fonts.google.com/specimen/Oswald/about
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Oswald&display=swap" rel="stylesheet">
+
+    <script defer type="module" src="/src/index.js"></script> 
+    <script defer type="module" src="/src/templates/themeSelector.js"></script>
 </head>
-<body>
-    <div class="navbar">
-        <div class="dropdown">
-            <button class="dropdown-button">Projects</button>
-            <div class="dropdown-content">
-                <a href="#">Latest</a>
-                <a href="/projects/favorites">Favorites</a>
-                <a href="/projects/">Archive</a>
+<body class="vflex">
+
+    <ic-navbar class="flex"></ic-navbar>
+    <div id="greeting-container" class="alt-hflex cornered">
+
+        <div id="headshot" class="vflex">
+            <img class="cornered" src="/assets/Headshot.png" alt="">
+        </div>
+
+        <div id="headshot-caption" class="vflex cornered">
+
+            <h1>Isaiah Cordova</h1>
+            <h2>Class of 2025</h2>
+            <h2>B.S. in Computer Engineering from Texas A&M University</h2>
+        </div>
+    
+        <div id="greeting" class="cornered">
+            <h1>Howdy! It is a pleasure to meet you!</h1>
+            <h2>I am a software developer, a computer engineer, and an Aggie</h2>
+            <h2>Some of my personal interests are AI/ML, Computer Vision, and Video Game Programming</h2>
+
+            <p>
+                While you're here, please refer to the
+                <a href="/~icordova/projects/">Projects</a>,
+                <a href="/~icordova/qualifications/">Qualifications</a>, and
+                <a href="/~icordova/service/">Service</a>
+                pages for additional and more
+                specific information
+                about me!
+            </p>
+        </div>
+    </div>
+
+    <div id="contact-info" class="vflex cornered">
+        <h1>Contact Information</h1>
+
+        <div id="contact-info-types" class="hflex">
+
+            <div class="vflex">
+                <h1>Emails</h1>
+                <h2>[personal, preferred]: <a href="mailto:isaiah.cordova21@gmail.com">isaiah.cordova21@gmail.com</a></h2>
+                <h2>[academic]: <a href="mailto:icordova@tamu.edu">icordova@tamu.edu</a></h2>
+            </div>
+    
+            <div class="vflex">
+                <h1>Phone #s</h1>
+                <h2>[personal, preferred]: (571) 228-3088</h2>
+            </div>
+    
+            <div class="vflex">
+                <h1>Connections</h1>
+                <h2>[LinkedIn] <a href="https://www.linkedin.com/in/icordova-eniac/">https://www.linkedin.com/in/icordova-eniac/</a></h2>
+                <h2>[GitHub] <a href="https://github.com/khth0n">https://github.com/khth0n</a></h2>
+                <h2>[Discord] khth0n</h2>
             </div>
         </div>
     </div>
-    <iframe src="templates/webpages/basic.html" frameborder="0"></iframe>
-    <iframe src="templates/webpages/project.html" frameborder="0"></iframe>
 </body>
 </html>

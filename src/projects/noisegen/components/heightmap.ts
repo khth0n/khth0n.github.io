@@ -40,24 +40,24 @@ function createHeightmap() {
     const loader = new TextureLoader();
 
     const texture = loader.load('/path_texture.png');
-    const heightmap = loader.load('/testmap9.png');
+    const heightmap = loader.load('/testmap10.png');
 
     //const heightmap = new Texture(generateHeightmap(hmap_width, hmap_height));
     heightmap.needsUpdate = true;
 
     console.log(heightmap);
 
-    const max_delta = 10;
+    const max_delta = 1000;
 
     geometry.translate(0, max_delta / 2, 0);
 
     const material = new MeshStandardMaterial({
-        color: 'gray',
-        map: texture,
+        color: '#ffd300',
+        //map: texture,
         displacementMap: heightmap,
         displacementScale: max_delta,
         side: DoubleSide,
-        //wireframe: true
+        wireframe: true
     });
 
     geometry.translate(0, -max_delta, 0);

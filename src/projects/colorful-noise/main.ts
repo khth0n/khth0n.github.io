@@ -211,7 +211,7 @@ const canvasToHeightmap = (canvas: HTMLCanvasElement) => {
     return heightmap;
 }
 
-const canvases = [];
+const canvases: HTMLCanvasElement[] = [];
 
 const canvas_count = 10;
 
@@ -227,91 +227,49 @@ for(let i = 0; i < canvas_count; i++) {
 
 
 //const original_noise = generate2DNoise(canvases[0].width, canvases[0].height);
-const original_noise = toHeightmap(generate2DPerlinNoise(canvases[0].width, canvases[0].height, 0, 8, 1, 0.015, 0.5, 2));
-renderNoise(canvases[0], original_noise);
+//const original_noise = toHeightmap(generate2DPerlinNoise(canvases[0].width, canvases[0].height, 0, 8, 1, 0.015, 0.5, 2));
+//renderNoise(canvases[0], original_noise);
 
-///*
-const filtered_noise = highPassFilterNoise(canvases[0].width, canvases[0].height, original_noise);
-renderNoise(canvases[1], filtered_noise);
+let pathImages: HTMLImageElement[] = [];
+let heightmap: Promise<Uint8ClampedArray>[] = [];
 
-const filtered_noise_2 = lowPassFilterNoise(canvases[0].width, canvases[0].height, filtered_noise);
-renderNoise(canvases[2], filtered_noise_2);
 
-const filtered_noise_3 = highPassFilterNoise(canvases[0].width, canvases[0].height, filtered_noise_2);
-renderNoise(canvases[3], filtered_noise_3);
+for(let i = 0; i < 10; i++) {
 
-const filtered_noise_4 = lowPassFilterNoise(canvases[0].width, canvases[0].height, filtered_noise_3);
-renderNoise(canvases[4], filtered_noise_4);
-//*/
+    pathImages[i] = new Image();
 
-const flatNoise = new Uint8ClampedArray(canvases[0].width * canvases[0].height);
+    heightmap[i] = new Promise<Uint8ClampedArray>((resolve, reject) => {
+        setTimeout(() => {
+            resolve(new Uint8ClampedArray());
+        }, 1000);
+    });
 
-for(let i = 0; i < flatNoise.length; i++) {
+    pathImages[i].onload = () => {
+    
+        const ctx = canvases[i].getContext('2d') as CanvasRenderingContext2D;
+        ctx.drawImage(pathImages[i], 0, 0);
 
-    flatNoise[i] = 255 * 0.9;
+
+        heightmap[i] = new Promise<Uint8ClampedArray>((resolve, reject) => {
+
+            resolve(canvasToHeightmap(canvases[i]));
+        })
+    
+        //console.log();
+    }
+
+    pathImages[i].src = `/sub_peak${i}.png`;
 }
 
-const combo_noise_2 = subtractNoise(filtered_noise_2, flatNoise);
-renderNoise(canvases[5], combo_noise_2);
+const test = async () => {
 
+    console.log('pinged');
 
-const combo_noise = combineNoise(combo_noise_2, filtered_noise);
-renderNoise(canvases[6], combo_noise);
+    console.log(await heightmap[0]);
 
-const combo_noise_3 = lowPassFilterNoise(canvases[0].width, canvases[0].height, combo_noise);
-renderNoise(canvases[7], combo_noise_3);
+    console.log('nice');
 
-const combo_noise_4 = lowPassFilterNoise(canvases[0].width, canvases[0].height, combo_noise_3);
-renderNoise(canvases[8], combo_noise_4);
-
-const combo_noise_5 = lowPassFilterNoise(canvases[0].width, canvases[0].height, combo_noise_4);
-renderNoise(canvases[9], combo_noise_5);
-
-const pathImage = new Image();
-
-pathImage.onload = () => {
-
-    const canvas = document.createElement('canvas');
-    canvas.width = pathImage.width;
-    canvas.height = pathImage.height;
-
-
-    const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
-    ctx.drawImage(pathImage, 0, 0);
-
-    comparison_stack.appendChild(canvas);
-
-    const canvas_2 = document.createElement('canvas');
-    canvas_2.width = pathImage.width;
-    canvas_2.height = pathImage.height;
-
-    comparison_stack.appendChild(canvas_2);
-
-    const pathNoise = invertNoise(canvasToHeightmap(canvas));
-    renderNoise(canvas_2, pathNoise);
-
-    const canvas_3 = document.createElement('canvas');
-    canvas_3.width = pathImage.width;
-    canvas_3.height = pathImage.height;
-
-    comparison_stack.appendChild(canvas_3);
-
-    const roadNoise = subtractNoise(combo_noise_5, pathNoise);
-    renderNoise(canvas_3, roadNoise);
-
-    const canvas_4 = document.createElement('canvas');
-    canvas_4.width = pathImage.width;
-    canvas_4.height = pathImage.height;
-
-    comparison_stack.appendChild(canvas_4);
-
-    const roadNoise_2 = lowPassFilterNoise(canvas_4.width, canvas_4.height,
-        combineNoise(
-            subtractNoise(filtered_noise_3, flatNoise),
-            roadNoise
-        )
-    );
-    renderNoise(canvas_4, roadNoise_2);
+    //console.log(await Promise.all(heightmap));
 }
 
-pathImage.src = '/path.png';
+test();
