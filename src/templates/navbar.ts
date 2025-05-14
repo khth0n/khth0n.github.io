@@ -1,11 +1,11 @@
 const origin = window.location.origin;
 
 const pageMap = new Map<string, string>([
-    [ `${origin}/`, 'Landing' ],
+    [ `${origin}/`, 'Home' ],
     [ `${origin}/projects/`, 'Projects' ],
     [ `${origin}/demos/`, 'Demos' ],
     [ `${origin}/qualifications/`, 'Qualifications' ],
-    [ `${origin}/service/`, 'Service' ],
+    [ `${origin}/outreach/`, 'Outreach' ],
     //[ `${origin}/ai-generated/`, 'AI Generated' ]
 ])
 
