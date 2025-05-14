@@ -2,11 +2,90 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Demo Collection</title>
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+    <link id="theme" rel="stylesheet" href="/stylesheets/tamu-style.css">
+
+        <!--
+        Credit to Google,
+        the Mozilla Foundation,
+        Telefonica S.A., 
+        Nikita Prokopov,
+        Vernon Adams,
+        Kalapi Gajjar,
+        and Cyreal
+        for Font Access
+
+        Reference: https://fonts.google.com/specimen/Fira+Code/about
+        Reference: https://fonts.google.com/specimen/Oswald/about
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Oswald&display=swap" rel="stylesheet">
 </head>
-<body>
-    <a href="./programming/evolutionary-creatures">Evolutionary Creatures</a>
+<body class="vflex">
+    
+    <ic-navbar class="flex"></ic-navbar>
+
+    <div class="demo-container vflex">
+        <h1 class="demo-header">Public Tools</h1>
+    </div>
+
+    <div class="demo-container vflex">
+        <h1 class="demo-header">Simulations</h1>
+    </div>
+
+    <div class="demo-container vflex">
+
+        <h1 class="demo-header">Pseudorandom Programs</h1>
+
+        <div class="demo hflex">
+
+            <div class="demo-info vflex">
+
+                <div class="demo-description">
+                    <h2>PRNGen</h2>
+                    <p>
+
+                        Pseudo-random number generator using Wolfram Cellular Automata.
+                    </p>
+                </div>
+
+                <div class="demo-status hflex cornered">
+                    <p>Links:</p>
+                    <a href="/demos/noisegen/">Demo</a>
+                    <a href="https://github.com/khth0n/khth0n.github.io/tree/master/src/demos/noisegen">Source Code</a>
+                </div>
+            </div>
+
+            <img class="demo-img cornered" src="/assets/car-tamu-paint.png" alt="">
+        </div>
+
+        <div class="demo alt-hflex">
+
+            <div class="demo-info vflex">
+
+                <div class="alt-demo-description">
+                    <h2>Perlin Noise</h2>
+                    <p>
+
+                        Pseudo-random number generator using Wolfram Cellular Automata.
+                    </p>
+                </div>
+
+                <div class="alt-demo-status hflex cornered">
+                    <p>Links:</p>
+                    <a href="/demos/noisegen/">Demo</a>
+                    <a href="https://github.com/khth0n/khth0n.github.io/tree/master/src/demos/noisegen">Source Code</a>
+                </div>
+            </div>
+
+            <img class="alt-demo-img cornered" src="/assets/car-tamu-paint.png" alt="">
+        </div>
+    </div>
+
+    <script defer type="module" src="/src/templates/navbar"></script>
+    <script defer type="module" src="/src/templates/themeSelector"></script>
 </body>
 </html>

@@ -15,6 +15,7 @@ export default defineConfig({
                     index:  fileURLToPath(new URL('index.html', import.meta.url)),
                     projects: fileURLToPath(new URL('projects/index.html', import.meta.url)),
                     demos: fileURLToPath(new URL('demos/index.html', import.meta.url)),
+                    demos_noisegen: fileURLToPath(new URL('demos/noisegen/index.html', import.meta.url)),
                     qualifications: fileURLToPath(new URL('qualifications/index.html', import.meta.url)),
                     service: fileURLToPath(new URL('service/index.html', import.meta.url))
                 }
