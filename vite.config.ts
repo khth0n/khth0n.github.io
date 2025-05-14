@@ -7,6 +7,8 @@ export default defineConfig({
 
     build: {
 
+        outDir: 'docs',
+
         rollupOptions: {
 
                 input: {

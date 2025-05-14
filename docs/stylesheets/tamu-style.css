@@ -1,0 +1,585 @@
+/*
+Shared CSS
+*/
+
+:root {
+    --maroon: #500000;
+    --dmaroon: #3C0000;
+    --white: #FFFFFF;
+    --brass: #998542;
+    --link: #006483;
+    --hover: #004362;
+    --dgray: #202020;
+    --lgray: #333333;
+    --black: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Oswald', sans-serif;
+}
+
+body {
+    margin: 10vh 2vw;
+    background-color: var(--dgray);
+}
+
+a {
+
+    color: var(--link);
+
+    text-decoration: none;
+}
+
+a:hover {
+
+    color: var(--hover);
+}
+
+.alt-flex,
+.alt-vflex,
+.alt-hflex,
+.vflex,
+.hflex,
+.flex {
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.alt-hflex {
+    flex-direction: row-reverse;
+}
+
+.alt-vflex {
+    flex-direction: column-reverse;
+}
+
+.vflex {
+    flex-direction: column;
+}
+
+.hflex {
+    flex-direction: row;
+}
+
+ic-navbar {
+
+    background-color: var(--maroon);
+
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    border-radius: 0 0 2vw 2vw;
+
+    overflow: scroll;
+}
+
+ic-navbar button {
+
+    background-color: var(--maroon);
+    color: var(--white);
+
+    margin: 10px 20px;
+    padding: 5px 10px;
+
+    border-style: hidden;
+    border-radius: 5px;
+}
+
+ic-navbar button:hover {
+
+    background-color: var(--brass);
+}
+
+.ic-navbar-element {
+    display: inline-block;
+    margin: 10px 20px;
+    padding: 5px 10px;
+    text-decoration: none;
+    background-color: var(--maroon);
+    color: var(--white);
+    border-radius: 5px;
+    text-align: center;
+
+    border-color: var(--lgray);
+
+    user-select: none;
+
+    white-space: nowrap;
+}
+
+.ic-navbar-element:hover {
+
+    background-color: var(--dmaroon);
+    color: var(--white);
+}
+
+.ic-navbar-element-current {
+    background-color: var(--brass);
+    color: var(--white);
+
+    pointer-events: none;
+    user-select: none;
+}
+
+.collapsed {
+
+    display: none;
+}
+
+.rolled {
+
+    justify-content: center;
+}
+
+ic-themes {
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    user-select: none;
+}
+
+.hidden {
+
+    display: none;
+}
+
+.current-theme {
+
+    background-color: var(--maroon);
+
+    pointer-events: none;
+}
+
+.option-theme {
+
+    background-color: var(--white);
+    color: var(--dmaroon);
+}
+
+
+/*
+Landing Page CSS
+*/
+
+#greeting-container { 
+    justify-content: space-evenly;
+
+    padding: 4vh 1vh;
+
+    border-radius: 10vh;
+}
+
+#greeting {
+
+    background-color: var(--brass);
+    color: var(--white);
+
+    padding: 5vh;
+
+    width: 40vw;
+
+    border-radius: 0 10vh;
+    box-shadow: 1vh 1vh var(--lgray);
+
+    text-wrap: wrap;
+}
+
+#headshot {
+
+    background-color: var(--maroon);
+
+    margin: 5vh;
+    padding: 10vh;
+
+    width: fit-content;
+
+    border-radius: 10vw 0;
+    box-shadow: 1vh 1vh var(--lgray);
+
+    align-items: center;
+}
+
+#headshot img {
+    width: 25vh;
+
+    user-select: none;
+
+    border-radius: 10vh 0;
+}
+
+#headshot-caption {
+
+    align-items: center;
+}
+
+#headshot-caption * {
+
+    background-color: var(--white);
+
+    margin: 1vh;
+    padding: 5vh;
+
+    width: fit-content;
+    height: fit-content;
+
+    border-radius: 0 5vh;
+    box-shadow: -1vh 1vh var(--lgray);
+
+    text-align: center;
+}
+
+#contact-info {
+
+    color: var(--white);
+
+    padding: 5vh 0;
+
+    width: 100%;
+
+    align-items: center;
+
+    text-align: center;
+    text-wrap: wrap;
+}
+
+#contact-info h1 {
+
+    background-color: var(--dmaroon);
+
+    margin: 1vh;
+    padding: 5vh;
+
+    width: fit-content;
+
+    border-radius: 10vh 0;
+    box-shadow: 1vh 1vh var(--lgray);
+}
+
+#contact-info-types {
+
+    justify-content: space-evenly;
+}
+
+#contact-info-types div {
+
+    align-items: center;
+}
+
+#contact-info-types div h1 {
+
+    background-color: var(--brass);
+}
+
+#contact-info-types div h2 {
+
+    background-color: var(--maroon);
+
+    margin: 1vh;
+    padding: 5vh;
+
+    border-radius: 0 10vh;
+    box-shadow: -1vh 1vh var(--lgray);
+}
+
+
+/*
+Projects Page CSS
+*/
+
+.project-container {
+
+    margin-bottom: 5vh;
+
+    width: 100%;
+
+    align-items: center;
+}
+
+.project-header {
+
+    background-color: var(--maroon);
+    color: var(--white);
+
+    margin: 0;
+    margin-top: 6vh;
+
+    width: 100%;
+
+    border-radius: 10vh 0;
+    box-shadow: 1vh 1vh var(--dmaroon);
+
+    text-align: center;
+}
+
+.project {
+
+    margin-bottom: 1vh;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+}
+
+.project-status {
+
+    background-color: var(--brass);
+    color: var(--white);
+
+    margin-top: 2vh;
+    padding: 1vh;
+
+    width: 90%;
+
+    align-items: center;
+
+    border-radius: 0 10vh;
+    box-shadow: -1vh 1vh var(--lgray);
+}
+
+.project-status-links {
+
+    align-items: center;
+}
+
+.project-description {
+
+    background-color: var(--white);
+
+    margin-top: 2vh;
+    padding: 5vh;
+    width: 40%;
+
+    border-radius: 0 10vh;
+    box-shadow: -1vh 1vh var(--lgray);
+}
+
+.project-info {
+
+    padding: 2vh;
+    width: 47.5%;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+.project-info img {
+
+    width: 100%;
+
+    border-radius: 10vh 0;
+    box-shadow: 1vh 1vh var(--lgray);
+}
+
+.project-img-caption {
+
+    background-color: var(--maroon);
+    color: var(--white);
+
+    margin-top: 2vh;
+    padding: 3vh;
+
+    border-radius: 10vh 0;
+    box-shadow: -1vh 1vh var(--dmaroon);
+}
+
+/*
+Qualifications Page CSS
+*/
+
+#resume-header {
+
+    background-color: var(--maroon);
+    color: var(--white);
+
+    margin: 0;
+
+    width: 100%;
+
+    border-radius: 10vh 0;
+    box-shadow: -1vh 1vh var(--dmaroon);
+
+    text-align: center;
+}
+
+#resume-container {
+
+    background-color: var(--lred);
+
+    margin-top: 5vh;
+
+    width: 100%;
+
+    align-items: center;
+}
+
+#resume-container iframe {
+
+    /*
+    display: block;
+
+    */
+    padding: 1vh 0;
+
+    width: 800px;
+    height: 100vh;
+    margin-top: 1vh;
+
+    border: none;
+}
+
+#technical-background {
+
+    width: 100%;
+}
+
+#technical-background h1 {
+
+    background-color: var(--maroon);
+    color: var(--white);
+
+    margin-bottom: 2vh;
+
+    text-align: center;
+
+    border-radius: 10vh 0;
+    box-shadow: -1vh 1vh var(--dmaroon);
+}
+
+#technical-skills {
+
+    background-color: var(--dblue);
+    color: var(--offwhite);
+
+    padding: 5%;
+    width: 40%;
+}
+
+.tech-skill {
+
+    background-color: var(--white);
+
+    margin: 5%;
+    padding: 5%;
+
+    border-radius: 0 10vh;
+    box-shadow: -1vh 1vh var(--lgray);
+}
+
+#technical-interests {
+
+    background-color: var(--lred);
+
+    padding: 5%;
+    width: 40%;
+}
+
+#technical-interests h1 {
+
+    border-radius: 0 10vh;
+    box-shadow: 1vh 1vh var(--dmaroon);
+}
+
+.tech-interest {
+
+    background-color: var(--white);
+
+    margin: 2%;
+    padding: 5%;
+
+    border-radius: 10vh 0;
+    box-shadow: 1vh 1vh var(--lgray);
+}
+
+/*
+Service Page CSS
+*/
+
+.service-work {
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.service-work h1 {
+
+    background-color: var(--brass);
+    color: var(--white);
+
+    padding: 1%;
+    width: 45%;
+
+    border-radius: 10vh 0;
+    box-shadow: 1vh 1vh var(--lgray);
+}
+
+.service-work h2 {
+
+    background-color: var(--maroon);
+    color: var(--white);
+
+    padding: 5%;
+    width: 50%;
+
+    border-radius: 10vh 0;
+    box-shadow: 1vh 1vh var(--dmaroon);
+
+    align-self: center;
+}
+
+.service-collection {
+
+    background-color: var(--dblue);
+    color: var(--offwhite);
+
+    padding: 5%;
+    width: 40%;
+}
+
+.service-project p {
+
+    background-color: var(--white);
+
+    margin: 5%;
+    padding: 5%;
+
+    border-radius: 10vh 0;
+    box-shadow: -1vh 1vh var(--lgray);
+}
+
+/*
+AI Generated Page CSS
+*/
+
+#ai-generated-container {
+
+    background-color: var(--brass);
+
+    padding: 5%;
+
+    align-items: center;
+}
