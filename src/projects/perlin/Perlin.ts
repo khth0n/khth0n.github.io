@@ -26,7 +26,7 @@ function Shuffle(tab: number[]){
     
     for(let e = tab.length-1; e > 0; e--){
 
-        let index = Math.round(rng.next().value! * (e - 1));
+        let index = Math.round((rng.next().value as number) * (e - 1));
         let temp = tab[e];
 
         tab[e] = tab[index];

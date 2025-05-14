@@ -21,7 +21,7 @@ const test_gen = () => {
     let alpha: number;
     for(let i = 0; i < data.length; i += 4) {
 
-        alpha = 255 * test.next().value!
+        alpha = 255 * (test.next().value as number)
 
         data[i + 0] = alpha;
         data[i + 1] = alpha;

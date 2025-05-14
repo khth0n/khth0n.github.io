@@ -1,4 +1,4 @@
-import { Navbar } from "./templates/navbar.js";
+import { Navbar } from "./templates/navbar";
 
 
 Navbar;

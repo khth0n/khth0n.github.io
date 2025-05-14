@@ -2,10 +2,10 @@ const origin = window.location.origin;
 
 const pageMap = new Map<string, string>([
     [ `${origin}/`, 'Landing' ],
-    [ `${origin}/projects/index.html`, 'Projects' ],
-    [ `${origin}/demos/index.html`, 'Demos' ],
-    [ `${origin}/qualifications/index.html`, 'Qualifications' ],
-    [ `${origin}/service/index.html`, 'Service' ],
+    [ `${origin}/projects/`, 'Projects' ],
+    [ `${origin}/demos/`, 'Demos' ],
+    [ `${origin}/qualifications/`, 'Qualifications' ],
+    [ `${origin}/service/`, 'Service' ],
     //[ `${origin}/ai-generated/`, 'AI Generated' ]
 ])
 

@@ -34,7 +34,7 @@ const generate2DNoise = (width: number, height: number) => {
 
     for(let i = 0; i < noiseArray.length; i++) {
 
-        noiseArray[i] = 255 * rng.next().value!
+        noiseArray[i] = 255 * (rng.next().value as number)
     }
 
     return noiseArray;
