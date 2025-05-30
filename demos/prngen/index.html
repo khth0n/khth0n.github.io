@@ -10,9 +10,15 @@
     <title>PRNGen</title>
 
     <link rel="stylesheet" href="./style.css">
-    <script type="module" src="/src/projects/prngen/main.ts"></script>
+
+    <script type="module" src="/src/demos/prngen/main" defer></script>
+    <script type="module" src="/src/templates/grids" defer></script>
 </head>
 <body>
     <h1>Nice</h1>
+
+    <canvas is="basic-grid" id="board" title="Evolutionary Creatures" rows="128" cols="128"></canvas>
+
+    <canvas is="basic-grid" id="unscaled-board" title="Evolutionary Creatures"></canvas>
 </body>
 </html>

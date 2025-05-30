@@ -84,7 +84,9 @@ ic-navbar {
 
     border-radius: 0 0 2vw 2vw;
 
-    overflow: scroll;
+    /* overflow: scroll; */
+    overflow: hidden;
+    overflow-x: auto;
 
     flex-wrap: nowrap;
 }
